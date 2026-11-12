@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TV</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    cursor: none;
+  }
+  img {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; /* troque por "cover" para preencher a tela cortando as bordas */
+  }
+</style>
+</head>
+<body>
+  <img id="tela" src="imagem.jpg" alt="">
+  <script>
+    // Recarrega a imagem a cada 10 minutos (ignora cache), para trocas aparecerem sozinhas
+    var MINUTOS = 10;
+    setInterval(function () {
+      document.getElementById('tela').src = 'imagem.jpg?t=' + Date.now();
+    }, MINUTOS * 60 * 1000);
+  </script>
+</body>
+</html>
